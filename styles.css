@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #050000;
+}
+
+.cube {
+  margin: 0 30px; /* Adjust spacing between cubes */
+}
+
+.gap {
+  width: 90px; /* Define the gap width */
+}
+
+.container {
+  perspective: 800px;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotateCube 4s infinite linear;
+}
+.cube:nth-child(1) .face {
+  box-shadow: 0 0 90px rgba(255, 0, 0, 0.8); /* Red shadow for cube 2 */
+}
+
+.cube:nth-child(3) .face {
+  box-shadow: 0 0 90px rgba(0, 0, 255, 0.8); /* Blue shadow for cube 3 */
+}
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 90px rgb(255, 251, 3); /* Increased shadow */
+  text-align: center;
+  line-height: 200px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.face img {
+  max-width: 100%; /* Make sure the image fits inside the face */
+  max-height: 100%; /* Make sure the image fits inside the face */
+  object-fit: cover; /* Fill the face with the image */
+}
+
+
+.front {
+  transform: translateZ(100px);
+
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(100px);
+ 
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+ 
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+ 
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
